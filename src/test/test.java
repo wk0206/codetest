@@ -40,6 +40,7 @@ public class test {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		 System.out.println("Set up");  
 	}
 
 	/**
@@ -47,10 +48,14 @@ public class test {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		System.out.println("Tear down");  
 	}
 
 	@Test
-	public void case1() {
+	public void testlengthOfHashtable1() {
+		
+		 System.out.println("test case 1");  
+		
 		CodeTest A = new CodeTest();
 		Hashtable<String, String> case1Table = new Hashtable<String, String>();
 		case1Table.put("1", "2");
@@ -59,7 +64,10 @@ public class test {
 	}
 	
 	@Test
-	public void case2() {
+	public void testlengthOfHashtable2() {
+		
+		System.out.println("test case 2");
+		
 		CodeTest A = new CodeTest();
 		Hashtable<String, String> case2Table = new Hashtable<String, String>();
 		case2Table.put("1", "2");
