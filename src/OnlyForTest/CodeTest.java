@@ -2,7 +2,7 @@ package OnlyForTest;
 
 import java.util.Hashtable;
 
-public class test {
+public class CodeTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,8 +21,15 @@ public class test {
 		
 		
 		//output
-		System.out.println(test.toString());
-		System.out.println(test.size());
+		//System.out.println(test.toString());
+		//System.out.println(test.size());
+		
+		
 	}
+	
+	public int lengthOfHashtable(Hashtable H){
+		return H.size();
+	}
+
 
 }

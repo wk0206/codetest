@@ -5,11 +5,15 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.Hashtable;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import OnlyForTest.CodeTest;
 
 /**
  * @author macanother
@@ -46,8 +50,20 @@ public class test {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void case1() {
+		CodeTest A = new CodeTest();
+		Hashtable<String, String> case1Table = new Hashtable<String, String>();
+		case1Table.put("1", "2");
+		assertEquals (1, A.lengthOfHashtable(case1Table));
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	public void case2() {
+		CodeTest A = new CodeTest();
+		Hashtable<String, String> case2Table = new Hashtable<String, String>();
+		case2Table.put("1", "2");
+		assertEquals ("2", case2Table.get("1"));
 	}
 
 }
