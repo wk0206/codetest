@@ -9,6 +9,7 @@ public class Q001 {
 	public boolean inputCheck(int[] nums){
 	
 		if(nums==null) return false;
+		if(nums.length==0) return false;
 		if(nums.length==1) return false;
 		return true;
 	}
@@ -38,7 +39,7 @@ public class Q001 {
 		}
 		
 		
-		return nums;
+		return result;
 	}
 	
 	public int[] betterOne(int[] nums, int target){
@@ -51,9 +52,12 @@ public class Q001 {
 		int[] copyOfResult = Arrays.copyOf(nums, nums.length);
 		Arrays.sort(copyOfResult);
 		
+
 		//do a binary search on the array
 		for(int i = 0; i < nums.length; i ++){
-			if(Arrays.binarySearch(copyOfResult, (target - nums[i]))>0){
+			int k = target - nums[i];
+			if (k == nums[i])continue;
+			if(Arrays.binarySearch(copyOfResult, k)>0){
 				//result[0] = copyOfResult.;
 				result[1] = i;
 				
@@ -65,6 +69,7 @@ public class Q001 {
 		for(int i = 0; i < nums.length; i ++){
 			if(nums[i]==(target - nums[result[1]])){
 				result[0] = i;
+				break;
 			}
 		}
 		
@@ -81,19 +86,41 @@ public class Q001 {
 		//use a Map to store scaned index&number
 		Map<Integer, Integer> map = new HashMap<Integer , Integer>();
 		
-		//find the result in the Map, if not in the map, put it in.
-		
+		//find the result in the Map, if not in the map, put it in.	
 		for(int i = 0; i < nums.length; i ++){
-			if(map.containsKey(nums[i])){
-				
+			int k = target - nums[i];
+			if(map.containsKey(k)){
+				result[0] = map.get(k);
+				result[1] = i;
+				return result;
 			}
+			map.put(nums[i], i);
 		}
 		
 		
-		return nums;
+		return result;
 	}
-	
-	public void main(String[] args){
+		
+	public static void main(String[] args){
+		//prepare input
+		int[] nums = new int[] {2,7,9,11,13};
+		int target = 9;
+		
+		//prepare output
+		int[] result = new int[2];
+		
+		//instance
+		Q001 instance = new Q001();
+		
+		//method1
+		result = instance.bruteForce(nums, target);
+		System.out.println(Arrays.toString(result));
+		//method2
+		result = instance.betterOne(nums, target);
+		System.out.println(Arrays.toString(result));
+		//method3
+		result = instance.bestOne(nums, target);
+		System.out.println(Arrays.toString(result));
 		
 	}
 }
