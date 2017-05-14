@@ -24,11 +24,50 @@ public class Q412 {
 		return result;
 	}
 	
+	
+	public List<String> fizzBuzz2(int n ){
+		
+		List<String> result = new ArrayList<String>();
+		
+		int pointer = 0;
+		int c3=1;
+		int c5=1;
+		
+		while(pointer < n){
+			if(c3==3 && c5==5){
+				result.add("BF");
+				c3=1;
+				c5=1;				
+			}
+			else if(c3==3){
+				result.add("F");
+				c3=1;
+				c5++;
+			}
+			else if (c5==5){
+				result.add("B");
+				c3++;
+				c5=1;
+			}
+			else{
+				c3++;
+				c5++;
+				result.add(String.valueOf(pointer+1));
+			}
+			
+			pointer++;
+		}
+		
+		return result;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Q412 instance = new Q412();
 		
-		System.out.println(instance.fizzBuzz(165));
+		System.out.println(instance.fizzBuzz2(165));
 
 	}
 

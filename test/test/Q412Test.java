@@ -32,4 +32,15 @@ public class Q412Test {
 		assertEquals("BF", instance.fizzBuzz(15).get(14));
 	}
 
+	
+	@Test
+	public void testFizzBuzz2() {
+		r1.add("1");
+		assertEquals(r1, instance.fizzBuzz2(1));
+		
+		assertEquals("F", instance.fizzBuzz2(3).get(2));
+		assertEquals("B", instance.fizzBuzz2(5).get(4));
+		assertEquals("BF", instance.fizzBuzz2(15).get(14));
+	}
+
 }
