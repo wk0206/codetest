@@ -1,4 +1,5 @@
 package mid;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -7,6 +8,40 @@ public class Q015 {
     public List<List<Integer>> threeSum(int[] nums) {
     	List<List<Integer>> res = new ArrayList<>();
 
+    	//step1 sort
+    	Arrays.sort(nums);
+    	
+    	//step2 loop
+    	for(int i = 0; i < nums.length-2; i ++){
+    		//pointer
+    		int j = i+1;
+    		int k = nums.length-1;
+    		if(i>0&&nums[i]==nums[i-1])continue;
+    		
+    		while(k>j){
+    			System.out.println(nums[i]+","+nums[j]+","+nums[k]+";"+i+","+j+","+k);
+    			if(nums[i]+nums[j]+nums[k]==0){
+    				//output one row
+    				List<Integer> row = new ArrayList<Integer>();
+    				row.add(nums[i]);
+    				row.add(nums[j]);
+    				row.add(nums[k]);
+    				res.add(row);
+    				j++;
+    				k--;
+    				while(nums[j]==nums[j-1])j++;
+    				while(nums[k]==nums[k+1])k--;
+    			}
+    			else if(nums[i]+nums[j]+nums[k]>0){
+    				k--;
+    			}
+    			else if(nums[i]+nums[j]+nums[k]<0){
+    				j++;
+    			}
+    		}
+    		
+    	}
+    	
     	return res;
     }
     
@@ -100,10 +135,12 @@ public class Q015 {
 		
 		Q015 instance = new Q015();
 		
-		int[] nums = {-1, 0, 1, 2, -1, -4};
-		instance.threeSum(nums);
+		int[] nums = {-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0};
+		List<List<Integer>> res = instance.threeSum(nums);
 		
-		
+		for(List<Integer> list : res){
+			System.out.println(list.get(0)+","+list.get(1)+","+list.get(2));
+		}
 
 	}
 

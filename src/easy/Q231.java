@@ -26,6 +26,7 @@ public class Q231 {
 		if(n==1)return true;
 		
 		while(n!=1){
+			//System.out.println("n is "+ n);
 			if(n%2!=0)return false;
 			n=n/2;
 		}
@@ -45,7 +46,7 @@ public class Q231 {
 		System.out.println("M2+9  "+instance.method2(9));
 		System.out.println("M2+16 "+instance.method2(16));
 		
-		System.out.println("M3+16 "+instance.method3(0));
+		System.out.println("M3+16 "+instance.method3(16));
 	}
 
 }
