@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 public class Q015 {
 
     public List<List<Integer>> threeSum(int[] nums) {
-    	List<List<Integer>> res = new ArrayList<>();
+    	List<List<Integer>> res = new ArrayList<List<Integer>>();
 
     	//step1 sort
     	Arrays.sort(nums);
@@ -91,7 +91,7 @@ public class Q015 {
     	Map<List<Integer>, Integer[]>matrix = new HashMap<List<Integer>, Integer[]>();
     	for (int i = 0; i < nums.length; i ++){
     		for (int j = i+1; j < nums.length; j ++){
-    			List<Integer> key = new ArrayList<>();
+    			List<Integer> key = new ArrayList<Integer>();
     			key.add(Math.min(nums[i],nums[j]));
     			key.add(Math.max(nums[i], nums[j]));
 	    		Integer[] vaule = {i, j};
