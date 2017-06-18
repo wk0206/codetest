@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Q035 {
 
 	public int solution(int[] nums , int target){
@@ -154,18 +157,23 @@ public class Q035 {
 		}
 		
 		int start = 0, end = nums.length-1;
-		
+
 		while(end>=start){
-			int index = (end+start)/2;
 			
+			int index = (end+start)/2;
+			System.out.print("start "+start + ";");
+			System.out.print("end   "+end + ";");
+			System.out.print("index "+index + ";");
+			System.out.println("nums["+index+"] ="+nums[index]);	
 			if(nums[index]==target)return index;
 			else if(nums[index]>target){
 				end = index-1;
 			}else {
 				start = index+1;
 			}
-			
+		
 		}
+		
 		
 		return start;
 	}
@@ -191,14 +199,26 @@ public class Q035 {
 	}
 	
 	public static void main(String[] args){
-		int[] nums = {1,3};
+		int[] nums = {1,3,5,6,7,9,99};
+		int[] nums2= new int[1000];
+		Random rn = new Random();
+		int i = 0;
+		while(i<1000){
+			nums2[i] = i;
+			System.out.println(nums2[i]);
+			i++;
+		}
+		Arrays.sort(nums2);
 		//nums = null;
 		//,5,6,7,9,99
-		int target = 2;
 		
+		//int target = 2;
+		int target = rn.nextInt(2000);
+		
+		System.out.println(target);
 		//System.out.println((2-1)/2);
 		Q035 instance = new Q035();
-		System.out.println(instance.solution5(nums, target));
+		System.out.println(instance.solution4(nums2, target));
 		
 		
 	}
