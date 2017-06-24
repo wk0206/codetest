@@ -81,7 +81,39 @@ public class Q028 {
 			//return inputCheck(S,W);
 		}
 		//build table T
-		int[] T = buildTable2(W);	
+		int[] T = buildTable(W);	
+		System.out.println(Arrays.toString(T));
+		while(m<S.length()-W.length()+1){
+			
+			if(S.charAt(m+i)==W.charAt(i)){
+				if(i==W.length()-1) return m;
+				//m++;
+				i++;
+			}else if(T[i]==-1){
+				//m++;
+				m++;
+				i=0;
+				//i=1;
+			/*}else if(T[i]==0){
+				m=m+i+1;
+				i=0;
+				*/
+			}else if(T[i]>=0){
+				m = m+i-T[i];
+				i=T[i];
+			}
+		}		
+		return -1;
+	}
+	
+	public int KMPLeetCode(String S, String W){
+		int m = 0, i = 0;
+		
+		if(inputCheck(S,W)<=0){
+			//return inputCheck(S,W);
+		}
+		//build table T
+		int[] T = buildTableLeetCode(W);	
 		System.out.println(Arrays.toString(T));
 		while(m<S.length()-W.length()+1){
 			
@@ -104,25 +136,36 @@ public class Q028 {
 		}		
 		return -1;
 	}
+
 	
-	private int[] buildTable2(String W){
-		int i =1, j = 0;
-		int[] res = new int[W.length()];
+	public int KMPWiki(String S, String W){
+		int m = 0, i = 0;
 		
-        while(i <  W.length()) {
-            if( W.charAt(i) ==  W.charAt(j)) {
-                res[i] = j+1;
-                i++; j++;
-            } else if (j > 0) {
-                j = res[j-1];
-            } else {
-                res[i] = 0;
-                i++;
-            }
-        }
-        return res;
-        
+		if(inputCheck(S,W)<=0){
+			//return inputCheck(S,W);
+		}
+		//build table T
+		int[] T = buildTableWiki(W);	
+		System.out.println(Arrays.toString(T));
+		while(m+i<S.length()){
+			
+			if(S.charAt(m+i)==W.charAt(i)){
+				i++;
+				if(i==W.length()) return m;
+				//m++;
+			}else if(T[i]>-1){
+				//m++;
+				m=m+i-T[i];
+				i=T[i];
+				//i=1;
+			}else {
+				m = m + i + 1;
+				i=0;
+			}
+		}		
+		return -1;
 	}
+
 	private int[] buildTable(String W){
 		int i=1, j = 0;
 		int[] res = new int[W.length()];
@@ -145,6 +188,63 @@ public class Q028 {
 		
 		
 		return res;
+	}	
+	
+	
+	private int[] buildTableLeetCode(String W){
+		int i =1, j = 0;
+		int[] res = new int[W.length()];
+		
+        while(i <  W.length()) {
+            if( W.charAt(i) ==  W.charAt(j)) {
+                res[i] = j+1;
+                i++; j++;
+            } else if (j > 0) {
+                j = res[j-1];
+            } else {
+                res[i] = 0;
+                i++;
+            }
+        }
+        return res;
+        
+	}
+	
+	private int[] buildTableWiki(String W){
+		int pos =1, cnd  = 0;
+		int[] T = new int[W.length()];
+		T[0]=-1;
+		
+		while(pos  < W.length()){			
+			if(W.charAt(pos )==W.charAt(cnd )){
+
+				//T[pos ]=cnd ;
+				T[pos] = T[cnd];
+				pos++;
+				cnd++;				
+			}else {
+				T[pos]=cnd;
+				cnd = T[cnd];
+				while(cnd >= 0 && W.charAt(pos )!=W.charAt(cnd )){
+					cnd = T[cnd];
+				}
+				pos = pos + 1;
+				cnd = cnd + 1;
+				/*
+				if(cnd >0){
+					T[pos ]=cnd ;
+					cnd ++;
+					
+				}else{
+					T[pos ] =cnd ;
+					cnd =1;
+				}
+				*/
+			}
+		};
+		
+		
+		return T;
 	}
 	
 	private int inputCheck(String W, String T){
@@ -168,14 +268,14 @@ public class Q028 {
 		
 		Q028 instance = new Q028();
 		
-		//String S="ABC BCDE ABCDEF ABCDBCDF";
-		//String W = "BCDBCDF";
+		String S="ABC BCDE ABCDEF ABCDBCDF ADESASDFGDSDF";//answer 17
+		String W = "BCDBCDF";
 		//String W= "ABCDABD";
 		//String W = "PARTICIPATE IN PARACHUTE";
-		String W = "ABACABABC";
+		//String W = "ABACABABC";
 		//String S = "a";
 		//String W = "";
-		String S = "mississippi";
+		//String S = "mississippi";//answer 4
 		//String W = "issip";
 		//List<Map<Character, Integer>> T = new ArrayList<HashMap<Character, Integer>>();
 		//T.add('A',-1);
