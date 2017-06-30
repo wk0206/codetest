@@ -39,6 +39,7 @@ public class Q031 {
 			
 			return 0;
 		}
+	
 	public int[] solutionWithMap(int[] nums){
 		if(!inputcheck(nums)){
 			if(nums == null)return null;
@@ -52,6 +53,7 @@ public class Q031 {
 				if(map.containsKey(cur)){
 					int[] res = swap(nums, i, map.get(cur));
 					//return convertIntArrayToInt(res);
+					res = resort2(res, i);
 					return res;
 				}	
 				
@@ -62,9 +64,39 @@ public class Q031 {
 		
 		return nums;
 	}
-	public int solutionWith(int[] nums){
+	public int[] solutionWithLC(int[] nums){
+		//input check
+		if(!inputcheck(nums)){
+			if(nums == null)return null;
+			if(nums.length == 1) return nums;
+		}
 		
-		return 0;
+		//find one break nums[i]<nums[i+1];
+		int i = nums.length-2;
+		boolean flag = false;
+		for(; i>-1; i--){
+			if(nums[i]<nums[i+1]){
+				flag = true;
+				break;
+			}
+		}
+		
+		if(flag == false){
+			return resort(nums,0);
+		}
+		//find the smallest one from i to nums.length
+		int j = nums.length-1;
+		for(; j >i; j--){
+			if(nums[j]>nums[i])break;
+		}
+		
+		//swap i j
+		int[] res = swap(nums,i,j);
+		
+		//resort from i+1 to nums.length
+		res = resort2(res,i+1);
+		
+		return res;
 	}
 	
 	public int[] solution(int[] nums){
@@ -170,6 +202,28 @@ public class Q031 {
 		return input;
 	}
 	
+	private int[] resort2(int[] nums, int A){
+		for(int i = A; i <(A+nums.length)/2; i++){
+				nums = swap(nums,i, (nums.length-1)-(i-A));				
+		}
+		
+		return nums;
+	}
+	
+	private int[] resort(int[] nums, int A){
+		
+		for(int i = nums.length-1; i >=A; i--){
+			for(int j = i-1;j>=A;j--){
+				if(nums[i]<nums[j]){
+					nums=swap(nums, i, j);
+				}	
+			}
+			
+		}
+		
+		return nums;
+	}
+	
 	private boolean inputcheck(int[] input){
 		if(input == null)return false;
 		if(input.length == 1) return false;
@@ -179,12 +233,15 @@ public class Q031 {
 	public static void main(String[] args){
 		
 		int[] test = {6,7,5,3,5,6,2,9,1,2,7,0,9};
+		int[] test2  = {1,3,2};
+		int[] test3 = {1,1};
+		int[] test4 = {3,2,1};
 		//675356291279
 		//6753562912709
 		Q031 instance = new Q031();
-		int[] output = instance.solutionWithMap(test);
+		int[] output = instance.solutionWithLC(test4);
 		StringBuilder res = new StringBuilder();
-		for(int i = 0; i < test.length; i++){
+		for(int i = 0; i < output.length; i++){
 			res.append(output[i]);
 		}
 		System.out.println(res.toString());
