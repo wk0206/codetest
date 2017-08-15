@@ -166,28 +166,88 @@ public class Q028 {
 		return -1;
 	}
 
+	public void search(String original, String find) {  
+	    int j = 0;  
+	    int[] next = getNext(find);
+	    System.out.println(Arrays.toString(next));
+	    for (int i = 0; i < original.length(); i++) {  
+	        while (j > 0 && original.charAt(i) != find.charAt(j))  
+	            j = next[j];  
+	        if (original.charAt(i) == find.charAt(j))  
+	            j++;  
+	        if (j == find.length()) {  
+	            System.out.println("find at position " + (i - j));  
+	            System.out.println(original.subSequence(i - j + 1, i + 1));  
+	            j = next[j];  
+	        }  
+	    }  
+	}
+
 	private int[] buildTable(String W){
 		int i=1, j = 0;
-		int[] res = new int[W.length()];
-		res[0]=-1;
-		
-		for(;i < W.length(); i++){			
+		int[] T = new int[W.length()];
+		T[0]=0;
+		//System.out.println(i+" of "+W.length());
+		//System.out.println(W);
+		int[] A = {i,j,T[0]};
+		//log(W,A);
+		while(i < W.length()){	
+			
+			
+			if(W.charAt(i)!=W.charAt(j)){
+				System.out.println(W.substring(0,i)+"["+W.charAt(i)+"]"+W.substring(i+1)+":"+W.substring(0,j)+"["+W.charAt(j)+"]"+W.substring(j+1));		
+				if(j>0){
+					T[i]=j;
+					j=T[j];
+				}else{
+					T[i]=j;
+				}
+			}
+			
+			if(W.charAt(i)==W.charAt(j)){
+				System.out.println(W.substring(0,i)+"["+W.charAt(i)+"]"+W.substring(i+1)+":"+W.substring(0,j)+"["+W.charAt(j)+"]"+W.substring(j+1));
+				//System.out.println(W.charAt(i)+":"+W.charAt(j));
+				if(j>0){
+					T[i]=j;
+					j++;
+
+					
+				}else if (j==0){
+					T[i] = j;
+					j++;
+
+				}
+				//System.out.println(i+":"+j+":"+T[i]);
+			}
+			i++;
+			/*
 			if(W.charAt(i)!=W.charAt(j)){
 
 				res[i]=j;
-				j=0;				
-			}else if(j>0){
-				res[i]=j;
-				j++;
-				
-			}else{
-				res[i] = j;
-				j=1;
+				i=j;
+				j=0;		
+
+			}else if(W.charAt(i)==W.charAt(j)){
+				if(j>0){
+					res[i]=j;
+					j++;
+					i++;
+					
+				}else if (j==0){
+					res[i] = j;
+					j=1;
+					i++;
+				}
 			}
+			*/
+			A[0] = i;
+			A[1] = j;
+			//A[2] = T[i];
+			//log(W,A);
 		}
 		
 		
-		return res;
+		return T;
 	}	
 	
 	
@@ -215,6 +275,8 @@ public class Q028 {
 		int[] T = new int[W.length()];
 		T[0]=-1;
 		
+		int[] A = {pos,cnd,T[pos]};
+		//log(W,A,T);
 		while(pos  < W.length()){			
 			if(W.charAt(pos )==W.charAt(cnd )){
 
@@ -241,11 +303,69 @@ public class Q028 {
 				}
 				*/
 			}
+			A[0] = pos;
+			A[1] = cnd;
+			//A[2] = T[i];
+			//log(W,A,T);
+			
 		};
 		
 		
 		return T;
 	}
+	
+	private int[] getNext(String b)  
+	{  
+	    int len=b.length();  
+	    int j=0;  
+	          
+	    int next[]=new int[len+1];//next表示长度为i的字符串前缀和后缀的最长公共部分，从1开始  
+	    next[0]=next[1]=0;  
+	          
+	    for(int i=1;i<len;i++)//i表示字符串的下标，从0开始  
+	    {//j在每次循环开始都表示next[i]的值，同时也表示需要比较的下一个位置  
+	    	System.out.println(b.substring(0,i)+"["+b.charAt(i)+"]"+b.substring(i+1)+":"+b.substring(0,j)+"["+b.charAt(j)+"]"+b.substring(j+1));
+	        while(j>0&&b.charAt(i)!=b.charAt(j))j=next[j];  
+	        
+	        if(b.charAt(i)==b.charAt(j))j++;  
+	        
+	        next[i+1]=j;
+	        
+	    }  
+	          
+	    return next;  
+	}
+
+	public void log(String W, int[] A,int[] T){
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		StringBuilder perfix = new StringBuilder("");
+		int i = A[0];
+		int j = A[1];
+		int k = i-j;
+		while(A[0]>0){
+			perfix.append(" ");
+			A[0]=A[0]-1;
+		}
+		
+		StringBuilder surfix = new StringBuilder("");
+		while(k>0){
+			surfix.append(" ");
+			k=k-1;
+		}
+		String TS = Arrays.toString(T).replaceAll(",","");
+		TS=TS.replaceAll(" ","");
+		TS=TS.replaceAll("-1","X").substring(1, TS.length()-3);
+		String message = String.join(" ", Arrays.toString(T));
+		  
+		System.out.println(perfix.toString()+"↓"+"i="+i);
+		System.out.println(W.toCharArray());
+
+		System.out.println(surfix.toString()+"" +W);
+		//System.out.println(surfix.toString()+"" +TS);
+		System.out.println(perfix.toString()+"↑"+"j="+j);
+		
+	}
+	
 	
 	private int inputCheck(String W, String T){
 		if(W==null||T==null)return -1;
@@ -268,8 +388,10 @@ public class Q028 {
 		
 		Q028 instance = new Q028();
 		
-		String S="ABC BCDE ABCDEF ABCDBCDF ADESASDFGDSDF";//answer 17
-		String W = "BCDBCDF";
+		//String S="ABC BCDE ABCDEF ABCDBCDF ADESASDFGDSDF";//answer 17
+		//String W = "BCDBCDF";
+		String S = "aabaaabaaac";
+		String W = "aabaaac";
 		//String W= "ABCDABD";
 		//String W = "PARTICIPATE IN PARACHUTE";
 		//String W = "ABACABABC";
@@ -280,6 +402,8 @@ public class Q028 {
 		//List<Map<Character, Integer>> T = new ArrayList<HashMap<Character, Integer>>();
 		//T.add('A',-1);
 		System.out.println(String.valueOf(instance.KMP(S, W)));
+		System.out.println(String.valueOf(instance.KMPWiki(S, W)));
+		instance.search(S, W);
 		
 	}
 
