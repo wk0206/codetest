@@ -30,4 +30,38 @@ public class Q070 {
     	
     	return sum;
     }
+
+    
+    long method = 0;
+    
+    
+    public long RC(int n){
+    	method=0;
+    	int sum =0;
+    	rec(sum,n);
+    	return method;
+    }
+    
+    public void rec(int sum, int n){
+    	if(sum+2<n){
+    		sum+=1;
+    		rec(sum,n);
+    		sum+=1;
+    		rec(sum,n);
+    	}else if(sum+2==n){
+    		method+=2;
+    	}else if(sum+1==n){
+    		method++;
+    	}
+    }
+
+    public static void main(String[] args){
+    	Q070 instance = new Q070();
+    	
+    	int num = 46;
+    	System.out.println(instance.RC(num));
+
+    	System.out.println(instance.climbStairs(num));
+    	
+    }
 }
