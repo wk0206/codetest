@@ -40,6 +40,25 @@ public class Q069 {
 		return res;
 	}
 	
+	public int M4(int x){
+		if(x==0) return 0;
+		
+		int highest = 0;
+		while((long)(1<<highest)*(long)(1<<highest)<=x) highest++;
+		
+		highest = highest-1;
+		
+		int res = (1<<highest);
+		
+		int b=highest-1;
+		while(highest>=0){  // find the remaining bits
+	        if((long)(res | (1<<b))*(long)(res |(1<<b))<=x) res|=(1<<b);
+	        b--;
+	    }
+		
+		return 0;
+	}
+	
 	
 	public static void main(String[] args){
 		Q069 instace = new Q069();
