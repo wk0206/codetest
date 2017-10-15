@@ -1,5 +1,7 @@
 package other;
 
+import java.util.Arrays;
+
 public class KMP {
 	
 	public int[] FF(String W){
@@ -11,13 +13,15 @@ public class KMP {
 		T[1]=0;
 		
 		while(i<W.length()){
+			System.out.println(i+" " +j);
+			System.out.println(W.charAt(i-1)+" " +W.charAt(j));
 			//equal, continue
 			if(W.charAt(i-1)==W.charAt(j)){
 				T[i]=j+1;
 				i++;
 				j++;
 			}else if(j>0){
-				j=T[i-1];
+				j=T[j];
 				
 			}else{
 				T[i]=0;
@@ -25,7 +29,9 @@ public class KMP {
 			}
 		}
 		
-		System.out.println(T.toString());
+		System.out.println(Arrays.toString(T));
+		
+		//System.out.println(T.toString());
 		return T;
 	}
 
@@ -34,7 +40,7 @@ public class KMP {
 		int pS = 0;
 		int pW = 0;
  
-		while(pS+pW <= S.length()){
+		while(pS+pW < S.length()){
 			if(S.charAt(pS+pW)==W.charAt(pW)){
 				pW++;
 				if(pW==W.length()) return pS;
@@ -51,11 +57,13 @@ public class KMP {
 	}
 	
 	
-	public void main(String[] args){
+	public static void  main(String[] args){
 		
-		String W="ABCDABD";
+		String W="ABACABABC";
 		String S="ABCD ABCABCDABDE";
-		int i = KMP(S,W);
+		
+		KMP instance = new KMP();
+		int i = instance.KMP(S,W);
 		
 		System.out.println(i);
 	}
