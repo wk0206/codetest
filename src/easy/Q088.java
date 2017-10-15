@@ -2,12 +2,23 @@ package easy;
 
 import java.util.Arrays;
 
+/*
+ * Given two sorted integer arrays nums1 and nums2, merge nums2 into 
+ * nums1 as one sorted array.
+
+Note:
+You may assume that nums1 has enough space (size that is greater or 
+equal to m + n) to hold additional elements from nums2. The number 
+of elements initialized in nums1 and nums2 are m and n respectively.
+*/
 public class Q088 {
-	public int[] solution(int[] a1,int m , int[] a2, int n){
+	public void solution(int[] a1,int m , int[] a2, int n){
 		//sort a1
 		Arrays.sort(a1);
 		//sort a2
 		Arrays.sort(a2);
+		
+		int[] arr = new int[m+n];
 		
 		//set a1 from position (m+n)-1
 		for(int i = (m+n-1); i >0; i--){
@@ -19,12 +30,12 @@ public class Q088 {
 				res = a2[n-1];
 				n--;
 			}
-			a1[i]=res;
+			arr[i]=res;
 		}
 		
 		
 		
-		return a1;
+		//return arr;
 	}
 	
 	public static void main(String[] args){
