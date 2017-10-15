@@ -25,6 +25,7 @@ public class KMP {
 			}
 		}
 		
+		System.out.println(T.toString());
 		return T;
 	}
 
@@ -52,6 +53,10 @@ public class KMP {
 	
 	public void main(String[] args){
 		
+		String W="ABCDABD";
+		String S="ABCD ABCABCDABDE";
+		int i = KMP(S,W);
 		
+		System.out.println(i);
 	}
 }
