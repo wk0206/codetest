@@ -19,6 +19,10 @@ public class CodeTest {
 			test.put(String.valueOf(i), i);
 		}
 		
+		char str = 'a';
+		String str2 = "bd";
+		System.out.println("a\u0022);
+		System.out.println("a\u0022.length()+\u0022b".length());   
 		
 		//output
 		//System.out.println(test.toString());
