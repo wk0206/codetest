@@ -24,6 +24,9 @@ public class classInstanceTest {
     		Class c =  Class.forName("easy.Q009");
     		Q009 i2 = (Q009) c.newInstance();
     		i2.main(args);
+    		
+    		Class ca = Class.forName("java.util.ArrayList");
+    		ArrayList a = (ArrayList) ca.newInstance();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
