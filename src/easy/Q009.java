@@ -4,6 +4,13 @@ package easy;
 //Palindrome Number
 public class Q009 {
 
+	public Object clone(){
+		return this;
+	}
+	
+	public Q009(){
+		System.out.println("test~~~");
+	}
 	
     public boolean isPalindrome(int x) {
         if(x<0|| (x!=0 &&x%10==0)) return false;
@@ -26,6 +33,8 @@ public class Q009 {
     	
     	int s = 1234554321;
     	boolean res = instance.isPalindrome(s);
+    	
+
     	
     	System.out.println(res);
     	//System.out.println("a".indexOf(" "));
