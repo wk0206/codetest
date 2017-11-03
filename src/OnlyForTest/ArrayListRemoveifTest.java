@@ -1,5 +1,6 @@
 package OnlyForTest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -10,7 +11,7 @@ public class ArrayListRemoveifTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("test");
+		System.out.println("test"+File.separator);
 		
 		
 		
