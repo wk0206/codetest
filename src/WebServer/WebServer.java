@@ -1,4 +1,4 @@
-package OnlyForTest;
+package WebServer;
 
 import java.io.File;
 import java.io.FileInputStream;
