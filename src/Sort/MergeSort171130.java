@@ -70,7 +70,9 @@ public class MergeSort171130 {
 		MergeSort171130 instance = new MergeSort171130();
 		
 		int[] input = new int[]{8,2,7,4,15,6,9};
-		int[] res = instance.MergeSort(input);
+		int[] arr = new int[]{1, 4, 8, 2, 55, 3, 4, 8, 6, 4, 0, 11, 34, 90, 23, 54, 77, 9, 2, 9, 4, 10};
+		
+		int[] res = instance.MergeSort(arr);
 		
 		System.out.println(Arrays.toString(res));
 	}
