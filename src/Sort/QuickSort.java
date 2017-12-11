@@ -1,7 +1,12 @@
 package Sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
+	public static int count = 0;
 	public static void QuickSort(int[] arr, int head, int tail){
+		count++;
+		System.out.println(head+":"+tail+":"+Arrays.toString(arr));
 		if (head >= tail || arr == null || arr.length <= 1) {
 	    	return;
         }
@@ -39,6 +44,7 @@ public class QuickSort {
         for (int digit : arr) {
             out += (digit + ",");
         }
+        System.out.println("after "+count+ " round");
         System.out.println(out);
     }
 }
