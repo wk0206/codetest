@@ -319,11 +319,11 @@ public class Q028 {
 	    int len=b.length();  
 	    int j=0;  
 	          
-	    int next[]=new int[len+1];//next±íÊ¾³¤¶ÈÎªiµÄ×Ö·û´®Ç°×ººÍºó×ºµÄ×î³¤¹«¹²²¿·Ö£¬´Ó1¿ªÊ¼  
+	    int next[]=new int[len+1];//nextè¡¨ç¤ºé•¿åº¦ä¸ºiçš„å­—ç¬¦ä¸²å‰ç¼€å’Œåç¼€çš„æœ€é•¿å…¬å…±éƒ¨åˆ†ï¼Œä»1å¼€å§‹
 	    next[0]=next[1]=0;  
 	          
-	    for(int i=1;i<len;i++)//i±íÊ¾×Ö·û´®µÄÏÂ±ê£¬´Ó0¿ªÊ¼  
-	    {//jÔÚÃ¿´ÎÑ­»·¿ªÊ¼¶¼±íÊ¾next[i]µÄÖµ£¬Í¬Ê±Ò²±íÊ¾ĞèÒª±È½ÏµÄÏÂÒ»¸öÎ»ÖÃ  
+	    for(int i=1;i<len;i++) //iè¡¨ç¤ºå­—ç¬¦ä¸²çš„ä¸‹æ ‡ï¼Œä»0å¼€å§‹ 
+	    {//jåœ¨æ¯æ¬¡å¾ªç¯å¼€å§‹éƒ½è¡¨ç¤ºnext[i]çš„å€¼ï¼ŒåŒæ—¶ä¹Ÿè¡¨ç¤ºéœ€è¦æ¯”è¾ƒçš„ä¸‹ä¸€ä¸ªä½ç½® 
 	    	System.out.println(b.substring(0,i)+"["+b.charAt(i)+"]"+b.substring(i+1)+":"+b.substring(0,j)+"["+b.charAt(j)+"]"+b.substring(j+1));
 	        while(j>0&&b.charAt(i)!=b.charAt(j))j=next[j];  
 	        
@@ -357,12 +357,12 @@ public class Q028 {
 		TS=TS.replaceAll("-1","X").substring(1, TS.length()-3);
 		String message = String.join(" ", Arrays.toString(T));
 		  
-		System.out.println(perfix.toString()+"¡ı"+"i="+i);
+		System.out.println(perfix.toString()+"ï¿½ï¿½"+"i="+i);
 		System.out.println(W.toCharArray());
 
 		System.out.println(surfix.toString()+"" +W);
 		//System.out.println(surfix.toString()+"" +TS);
-		System.out.println(perfix.toString()+"¡ü"+"j="+j);
+		System.out.println(perfix.toString()+"ï¿½ï¿½"+"j="+j);
 		
 	}
 	
