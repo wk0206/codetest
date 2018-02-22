@@ -12,10 +12,10 @@ public class OuterClass {
 	class InnerClass1{
 		public String _name1= "test_InnerClass1";
         public void innerDisplay(){
-            //Ê¹ÓÃÍâÎ§ÄÚµÄÊôĞÔ
+        	//ä½¿ç”¨å¤–å›´å†…çš„å±æ€§
             str = "chenssy...";
             System.out.println(name+_name1);
-            //Ê¹ÓÃÍâÎ§ÄÚµÄ·½·¨
+          //ä½¿ç”¨å¤–å›´å†…çš„æ–¹æ³•
             dosth();
         }
 		
