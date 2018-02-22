@@ -12,7 +12,7 @@ public class CodeTest3 {
 		E = _a;
 	}
 	
-	public final int E; //final¿Õ°×,±ØĞëÔÚ³õÊ¼»¯¶ÔÏóµÄÊ±ºò¸³³õÖµ 
+	public final int E; //finalç©ºç™½,å¿…é¡»åœ¨åˆå§‹åŒ–å¯¹è±¡çš„æ—¶å€™èµ‹åˆå€¼ 
 
     public CodeTest3(int x) { 
             E = x; 

@@ -20,7 +20,7 @@ public class ArrayListRemoveifTest {
 	    list.add(2);
 	    list.add(3);
 	    list.add(4);
-	    list.removeIf(s -> s%2==0);               // 过滤掉模2等于0的数
+	    list.removeIf(s -> s%2==0);               // 杩囨护鎺夋ā2绛変簬0鐨勬暟
 	    list.forEach(s -> System.out.println(s));
 		//Arrays.parallelPrefix(a, )
 		
@@ -30,8 +30,8 @@ public class ArrayListRemoveifTest {
 	    strings.add("ac");
 	    strings.add("bc");
 	    strings.add("cd");
-	    Predicate<String> predicate = (s) -> s.startsWith("a"); // 这里单独定义了过滤器
-	    strings.removeIf(predicate);                            // 过滤掉以"a"开头的元素
+	    Predicate<String> predicate = (s) -> s.startsWith("a"); // 杩欓噷鍗曠嫭瀹氫箟浜嗚繃婊ゅ櫒
+	    strings.removeIf(predicate);                            // 杩囨护鎺変互"a"寮�澶寸殑鍏冪礌
 	    strings.forEach(s -> System.out.println(s));
 		
 		//output

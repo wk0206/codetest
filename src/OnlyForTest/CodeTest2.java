@@ -35,8 +35,8 @@ public class CodeTest2 {
 		System.out.println(Arrays.binarySearch(a, 4));
 		Arrays.parallelPrefix(a, new IntBinaryOperator()
         {
-            //left´ú±íÊı×éÇ°Ò»¸öË÷Òı´¦µÄÔªËØ£¬¼ÆËãµÚÒ»¸öÔªËØÊ±£¬leftÎª1
-            //right´ú±íÊı×éÖĞµ±Ç°Ë÷Òı´¦µÄÔªËØ
+			//leftä»£è¡¨æ•°ç»„å‰ä¸€ä¸ªç´¢å¼•å¤„çš„å…ƒç´ ï¼Œè®¡ç®—ç¬¬ä¸€ä¸ªå…ƒç´ æ—¶ï¼Œleftä¸º1
+            //rightä»£è¡¨æ•°ç»„ä¸­å½“å‰ç´¢å¼•å¤„çš„å…ƒç´ 
             public int applyAsInt(int left,int right)
             {
                 return (left-right)*2;
