@@ -29,14 +29,36 @@ public class Q3_6 {
 	
 	public void dequeueDog(Species s) {
 		oneAnimal current = shelter.peek();
-		while(shelter.peek().species != s) {
-			//shelter.next();
+		oneAnimal previous = null;
+		while(current!=null) {
+			
+			if(current.species==s.dog) {
+				//pop this and cut
+				previous.next = current.next;
+				//break
+				break;
+			}
+			previous = current;
+			current = current.next;
 		}
-		
-		
+	
 	}
 	
-	public void dequeueCat() {
-		
+	public void dequeueCat(Species s) {
+		oneAnimal current = shelter.peek();
+		oneAnimal previous = null;
+		while(current!=null) {
+			
+			if(current.species==s.cat) {
+				//pop this and cut
+				//p--->c--->n
+				//p-------->n
+				previous.next = current.next;
+				//break
+				break;
+			}
+			previous = current;
+			current = current.next;
+		}
 	}
 }
