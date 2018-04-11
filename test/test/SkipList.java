@@ -33,6 +33,7 @@ public class SkipList<E> extends LinkedList<E> {
 		return nodes;
 	}
 
+	//find the most near node, or the node itself
 	private Node<E> findNode(int key) {
 		Node<E> p = head;
 		while (true) {
