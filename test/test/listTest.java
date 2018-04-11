@@ -63,7 +63,7 @@ public class listTest {
 		    temp1.pollFirst();
 		}
 		end = System.currentTimeMillis();
-		System.out.println("pollFirst()»òpollLast():" + (end - start) +" ms");
+		System.out.println("pollFirst()ï¿½ï¿½pollLast():" + (end - start) +" ms");
 		
 		
 		LinkedList<Integer> temp2 = new LinkedList<>();
@@ -73,7 +73,7 @@ public class listTest {
 		    temp2.removeFirst();
 		}
 		end = System.currentTimeMillis();
-		System.out.println("removeFirst()»òremoveLast():" + (end - start) +" ms");
+		System.out.println("removeFirst()ï¿½ï¿½removeLast():" + (end - start) +" ms");
 		
 		
 		
@@ -81,7 +81,7 @@ public class listTest {
 		
 		
 		
-		
+		Collections.emptyList();
 		
 		
 		start = System.currentTimeMillis();
@@ -121,7 +121,7 @@ public class listTest {
 //		    atemp1.pollFirst();
 //		}
 //		end = System.currentTimeMillis();
-//		System.out.println("pollFirst()»òpollLast():" + (end - start) +" ms");
+//		System.out.println("pollFirst()ï¿½ï¿½pollLast():" + (end - start) +" ms");
 //		
 //		
 //		LinkedList<Integer> temp2 = new LinkedList<>();
@@ -131,7 +131,7 @@ public class listTest {
 //		    temp2.removeFirst();
 //		}
 //		end = System.currentTimeMillis();
-//		System.out.println("removeFirst()»òremoveLast():" + (end - start) +" ms");
+//		System.out.println("removeFirst()ï¿½ï¿½removeLast():" + (end - start) +" ms");
 	}
 
 }
