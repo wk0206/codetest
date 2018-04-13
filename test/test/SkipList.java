@@ -47,6 +47,8 @@ public class SkipList<E> extends LinkedList<E> {
 				break;
 			}
 		}
+		//if key exist, return the node
+		//if key do not exist, return the most left near node
 		return p;
 	}
 
@@ -68,9 +70,10 @@ public class SkipList<E> extends LinkedList<E> {
 			return;
 		}
 
-		// make a new Node , add to tail
-		Node<E> q = new Node<E>(k, v);
-		backLink(p, q);
+		// make a new Node , add to tail(most near to the given key)
+		//q is the node we need to add
+		Node<E> target = new Node<E>(k, v);
+		backLink(p, target);
 		int currentLevel = 0;
 
 		// roll
@@ -87,7 +90,10 @@ public class SkipList<E> extends LinkedList<E> {
 				tail = p2;
 			}
 
-			// put p to upper level
+			// put p to upper level(p is not the node we add, it is the node nearest to added node)
+			//this layer means, we already decide to add a layer to current node
+			//so p will point to every layer's nearest node
+			//until the outer while stop
 			while (p.up == null) {
 				p = p.left;
 			}
@@ -95,8 +101,8 @@ public class SkipList<E> extends LinkedList<E> {
 
 			Node<E> e = new Node<E>(k, v);
 			backLink(p, e);
-			verticallLink(e, q);
-			q = e;
+			verticallLink(e, target);
+			target = e;
 			currentLevel++;
 
 		}
