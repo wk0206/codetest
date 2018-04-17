@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class listTest {
 		    iterator.next();
 		}
 		long end = System.currentTimeMillis();
-		System.out.println("Iterator£º" + (end - start) +" ms");
+		System.out.println("Iterator:" + (end - start) +" ms");
 		
 		
 		start = System.currentTimeMillis();
@@ -47,13 +48,13 @@ public class listTest {
 			lList.get(i);
 		}
 		end = System.currentTimeMillis();
-		System.out.println("for£º" + (end - start) +" ms");
+		System.out.println("for:" + (end - start) +" ms");
 		
 		
 		start = System.currentTimeMillis();
 		for(Integer i : lList);
 		end = System.currentTimeMillis();
-		System.out.println("for2£º" + (end - start) +" ms");
+		System.out.println("for2:" + (end - start) +" ms");
 		
 		LinkedList<Integer> temp1 = new LinkedList<>();
 		temp1.addAll(lList);
@@ -62,7 +63,7 @@ public class listTest {
 		    temp1.pollFirst();
 		}
 		end = System.currentTimeMillis();
-		System.out.println("pollFirst()»òpollLast()£º" + (end - start) +" ms");
+		System.out.println("pollFirst()ï¿½ï¿½pollLast():" + (end - start) +" ms");
 		
 		
 		LinkedList<Integer> temp2 = new LinkedList<>();
@@ -72,7 +73,7 @@ public class listTest {
 		    temp2.removeFirst();
 		}
 		end = System.currentTimeMillis();
-		System.out.println("removeFirst()»òremoveLast()£º" + (end - start) +" ms");
+		System.out.println("removeFirst()ï¿½ï¿½removeLast():" + (end - start) +" ms");
 		
 		
 		
@@ -80,7 +81,7 @@ public class listTest {
 		
 		
 		
-		
+		Collections.emptyList();
 		
 		
 		start = System.currentTimeMillis();
@@ -89,7 +90,7 @@ public class listTest {
 		    aiterator.next();
 		}
 		end = System.currentTimeMillis();
-		System.out.println("Iterator£º" + (end - start) +" ms");
+		System.out.println("Iterator:" + (end - start) +" ms");
 		
 		
 		start = System.currentTimeMillis();
@@ -97,13 +98,21 @@ public class listTest {
 			aList.get(i);
 		}
 		end = System.currentTimeMillis();
-		System.out.println("for£º" + (end - start) +" ms");
+		System.out.println("for:" + (end - start) +" ms");
 		
 		
 		start = System.currentTimeMillis();
 		for(Integer i : aList);
 		end = System.currentTimeMillis();
-		System.out.println("for2£º" + (end - start) +" ms");
+		System.out.println("for2:" + (end - start) +" ms");
+		
+		
+		Collections.sort(aList);
+		
+		List list= new ArrayList(); 
+		list.add(new Object()); 
+		list.add(new Object()); 
+		list.add(new Object()); 
 		
 //		ArrayList<Integer> atemp1 = new ArrayList<>();
 //		atemp1.addAll(aList);
@@ -112,7 +121,7 @@ public class listTest {
 //		    atemp1.pollFirst();
 //		}
 //		end = System.currentTimeMillis();
-//		System.out.println("pollFirst()»òpollLast()£º" + (end - start) +" ms");
+//		System.out.println("pollFirst()ï¿½ï¿½pollLast():" + (end - start) +" ms");
 //		
 //		
 //		LinkedList<Integer> temp2 = new LinkedList<>();
@@ -122,7 +131,7 @@ public class listTest {
 //		    temp2.removeFirst();
 //		}
 //		end = System.currentTimeMillis();
-//		System.out.println("removeFirst()»òremoveLast()£º" + (end - start) +" ms");
+//		System.out.println("removeFirst()ï¿½ï¿½removeLast():" + (end - start) +" ms");
 	}
 
 }
