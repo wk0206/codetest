@@ -2,6 +2,7 @@ package CTCI.OOD;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class enumTest {
 
@@ -64,6 +65,14 @@ public class enumTest {
 	}
 
 	public static Map<String, String> test = new HashMap<String, String>(20) {
+		{
+
+			put("1", "");
+			put("2", "");
+		}
+	};
+	
+	public static Map<String, String> testTree = new TreeMap<String, String>() {
 		{
 
 			put("1", "");
