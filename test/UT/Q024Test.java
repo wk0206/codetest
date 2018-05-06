@@ -103,4 +103,15 @@ public class Q024Test extends Q024 {
 		// fail("Not yet implemented");
 	}
 
+	@Test
+	public void test_swapPairs2() {
+		n4.next=null;
+		swapPairs(head);
+		assertEquals(1, head.val);
+		// assertEquals(n2.next,head.next.next);
+		// assertEquals(n2.next,head.next.next);
+		// assertEquals(n2.next,head.next.next);
+
+		// fail("Not yet implemented");
+	}
 }

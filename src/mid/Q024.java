@@ -15,9 +15,14 @@ public class Q024 {
         ListNode c = NH;
         ListNode n = c.next;
         
-        while(!(c.next==null || c.next.next==null)){
-            insert(c , c.next.next);
-            c = c.next.next;
+        while(c.next!=null){
+        	if( c.next.next==null) {
+        		break;
+        	}else {
+        		insert(c , c.next.next);
+                c = c.next.next;
+        	}
+            
         }
         
         return NH.next;
