@@ -8,6 +8,8 @@ public class Q118 {
 	
 	public List<List<Integer>>  solution(int rnd) {
 		
+		if(rnd == 0) return new ArrayList<>();
+		
 		List<List<Integer>> res = new ArrayList<>();
 		//List<Integer> r1 = Arrays.asList(new Integer[] {1});
 		//res.add
