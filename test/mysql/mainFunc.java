@@ -1,7 +1,9 @@
 package mysql;
 
 import java.sql.Connection;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class mainFunc {
 
@@ -22,15 +24,35 @@ public class mainFunc {
 //				state.executeUpdate("insert into tx1 values('" + num + "','str" + i + "')");
 //			}
 			
-			state.executeQuery("SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT   FROM INFORMATION_SCHEMA.COLUMNS where table_schema = 'employees';");
+			//ResultSet res = state.executeQuery("SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT   FROM INFORMATION_SCHEMA.COLUMNS where table_schema = 'employees';");
+			ResultSet res = state.executeQuery("SELECT * FROM employees.salaries;");
 			System.out.println("使用Statement费时：" + (System.currentTimeMillis() - start));
+			
+			int rowCount = 0;
+			while(res.next()) {
+				rowCount++;
+				System.out.println("res：" + res.getString("emp_no")+" ");
+//				System.out.println("res：" + res.getString(2)+" ");
+//				System.out.println("res：" + res.getString(3)+" ");
+//				System.out.println("res：" + res.getString(4)+" ");
+//				System.out.println("res：" + res.getString(5)+" ");
+//				System.out.println("res：" + res.getString(6)+" ");
+//				System.out.println("res：" + res.getString(7)+" ");
+			}
+			System.out.println("res：" + res.getRow());
+			System.out.println("res：" + rowCount);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
 			connection.closeConn();
 			if (state != null) {
-				state.close();
+				try {
+					state.close();
+				}catch(SQLException es) {
+					es.printStackTrace();
+				}
+				
 			}
 		}
 
