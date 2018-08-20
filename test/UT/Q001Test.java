@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-import easy.Q001;
+import leetcode.easy.Q001;
 
 public class Q001Test {
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 //import static net.Mildview.util.Range.*;
 
-import easy.Q009;
+import leetcode.easy.Q009;
 
 public class classInstanceTest {
 

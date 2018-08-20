@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import easy.Q412;
+import leetcode.easy.Q412;
 
 public class Q412Test {
 

@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import mid.Q024;
+import leetcode.mid.Q024;
 
 /**
  * @author zbook15G3
